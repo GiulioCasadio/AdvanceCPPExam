@@ -5,5 +5,7 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	SList<int> listaprova;
+
+    std::cout << listaprova.dim;
 }
