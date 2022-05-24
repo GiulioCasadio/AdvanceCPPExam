@@ -15,10 +15,11 @@ protected:
 	Node* firstPos = nullptr;
 
 public:
-	Slist<class T>() {};
+	//Slist<class T>() {};
 
 	int dim=0;
 
 
+	inline void push_front(const T& val);
 };
 
