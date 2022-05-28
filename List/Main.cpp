@@ -7,7 +7,9 @@ int main()
 {
 	SList<int> listaprova;
 
-	listaprova.push_front(1);
+	std::cout << listaprova.dim << std::endl;
 
-    std::cout << listaprova.dim;
+	//listaprova.AddNode();
+
+	std::cout << listaprova.dim << std::endl;
 }
