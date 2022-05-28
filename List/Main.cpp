@@ -9,7 +9,7 @@ int main()
 
 	std::cout << listaprova.dim << std::endl;
 
-	//listaprova.AddNode();
+	listaprova.push_front(5);
 
 	std::cout << listaprova.dim << std::endl;
 }

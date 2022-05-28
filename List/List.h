@@ -8,40 +8,40 @@ public:
 	T value;
     Node* next;
     Node() : next(nullptr) {}
-    Node(T val, node* p = nullptr) : value(val), next(p) {}
+    Node(T val, Node* p = nullptr) : value(val), next(p) {}
 };
 
 template<class T>
 class SList
 {
-protected:
+public:
     Node<T>* firstPos = nullptr;
     int dim = 0;
 
 
 private:
-	class list_iterator {
-	private:
+    class list_iterator {
+    private:
         Node<T>* ptr; //Pointer to an element in the list container
-	public:
+    public:
 
-		list_iterator(node<T>* p = nullptr) : ptr(p) {}
+        list_iterator(Node<T>* p = nullptr) : ptr(p) {}
 
 
-		//Overload + +, --, *, - > and other basic operations
-			   //Return reference, convenient to modify the object through * it
-		T& operator*() const {
-			return ptr->value;
-		}
+        //Overload + +, --, *, - > and other basic operations
+               //Return reference, convenient to modify the object through * it
+        /*T& operator*() const {
+            return ptr->value;
+        }
 
-		node<T>* operator->() const {
-			return ptr;
-		}
+        node<T>* operator->() const {
+            return ptr;
+        }
 
-		list_iterator& operator++() {
-			ptr = ptr->next;
-			return *this;
-		}
+        list_iterator& operator++() {
+            ptr = ptr->next;
+            return *this;
+        }
 
         list_iterator operator++(int) {
             node<T>* tmp = ptr;
@@ -57,25 +57,27 @@ private:
         bool operator!=(const list_iterator& t) const {
             return t.ptr != this->ptr;
         }
-
+        */
+    };
+public:
         typedef list_iterator iterator; //Type alias
-        my_list() {
+        SList() {
             firstPos = nullptr;
             dim = 0;
         }
 
         //Insert elements from the end of the list
-        /*void push_back(const T& value) {
-            if (head == nullptr) {
-                head = new node<T>(value);
-                tail = head;
+        void push_front(const T& value) {
+            if (firstPos == nullptr) {
+                firstPos = new Node<T>(value);
+                firstPos->next = nullptr;
             }
             else {
-                tail->next = new node<T>(value);
-                tail = tail->next;
+                firstPos->next = firstPos;
+                firstPos = new Node<T>(value);
             }
-            size++;
-        }*/
+            dim++;
+        }
 
         //Print linked list elements
         /*void print(std::ostream& os = std::cout) const {
@@ -95,6 +97,6 @@ private:
         }*/
 
         //Other member functions insert / erase / replace
-    }
+   
 };
 
