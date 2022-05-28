@@ -2,14 +2,23 @@
 
 #include <iostream>
 #include "List.h"
+#include <assert.h>
 
 int main()
 {
-	SList<int> listaprova;
+	//test costruttore, empty()
+	{
+		SList<float> listaprova = SList<float>();
+		if (listaprova.empty()) { 
+			assert(!listaprova.empty());
+		}
+	}
 
-	std::cout << listaprova.dim << std::endl;
-
-	listaprova.push_front(5);
-
-	std::cout << listaprova.dim << std::endl;
+	// test pushfront, front
+	{
+		SList<int> listaprova;
+		listaprova.push_front(5);
+		assert(!listaprova.empty());
+		// TODO assert(*listaprova.front==5); // front e operator ==
+	}
 }

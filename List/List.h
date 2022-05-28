@@ -14,7 +14,7 @@ public:
 template<class T>
 class SList
 {
-public:
+protected:
     Node<T>* firstPos = nullptr;
     int dim = 0;
 
@@ -60,10 +60,25 @@ private:
         */
     };
 public:
-        typedef list_iterator iterator; //Type alias
+        typedef list_iterator iterator; 
+
         SList() {
             firstPos = nullptr;
-            dim = 0;
+            dim = 1;
+        }
+
+        // crea un lista di n elementi nulli
+        SList(int n) {
+            for (int i : n) {
+                push_front(nullptr);
+            }
+        }
+
+        // crea un lista di n elementi nulli
+        SList(int n, T value) {
+            for (int i : n) {
+                push_front(value);
+            }
         }
 
         //Insert elements from the end of the list
@@ -79,11 +94,18 @@ public:
             dim++;
         }
 
-        //Print linked list elements
-        /*void print(std::ostream& os = std::cout) const {
-            for (node<T>* ptr = head; ptr != tail->next; ptr = ptr->next)
-                os << ptr->value << std::endl;
-        }*/
+        int size() { return dim; }
+
+        bool empty() {
+            if (dim <= 0) {
+                return true;
+            }
+            return false;
+        }
+
+        iterator front() const {
+            return listiterator(firstPos);
+        }
 
         //How to operate iterators
        //Return to the head pointer of the list
@@ -96,7 +118,5 @@ public:
             return list_iterator(tail->next);
         }*/
 
-        //Other member functions insert / erase / replace
    
 };
-
