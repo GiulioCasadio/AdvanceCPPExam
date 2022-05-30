@@ -30,14 +30,14 @@ private:
 
         //Overload + +, --, *, - > and other basic operations
                //Return reference, convenient to modify the object through * it
-        /*T& operator*() const {
+        T& operator*() const {
             return ptr->value;
         }
-
-        node<T>* operator->() const {
+        
+        Node<T>* operator->() const {
             return ptr;
         }
-
+        /*
         list_iterator& operator++() {
             ptr = ptr->next;
             return *this;
@@ -104,7 +104,7 @@ public:
         }
 
         iterator front() const {
-            return listiterator(firstPos);
+            return list_iterator(firstPos);
         }
 
         //How to operate iterators

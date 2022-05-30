@@ -20,5 +20,8 @@ int main()
 		listaprova.push_front(5);
 		assert(!listaprova.empty());
 		// TODO assert(*listaprova.front==5); // front e operator ==
+		listaprova.push_front(*listaprova.front());
+		assert(listaprova.size()==3);
 	}
+
 }
