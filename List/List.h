@@ -138,16 +138,13 @@ public:
             }
         }
 
-        //How to operate iterators
-       //Return to the head pointer of the list
-        /*iterator begin() const {
-            return list_iterator(head);
+        SList<T>* operator=(const SList<T>& other) {
+            if (this != &other)
+            {
+                this->firstPos = other.firstPos;
+                this->dim = other.dim;
+            }
+
+            return this;
         }
-
-        //Return to the end pointer of the list
-        iterator end() const {
-            return list_iterator(tail->next);
-        }*/
-
-   
 };

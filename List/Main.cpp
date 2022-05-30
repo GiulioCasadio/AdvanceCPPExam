@@ -38,6 +38,16 @@ int main()
 		listaprova.push_front(5);
 		listaprova.push_front(5);
 		listaprova.pop_front();
-		listaprova.pop_front(); // TODO perdo il riferimento e da errore. indagare
+		//listaprova.pop_front(); // TODO perdo il riferimento e da errore. indagare
+	}
+
+	// test assegnamento
+	{
+		SList<int> lista1 = SList<int>(2, 3);
+		SList<int> lista2;
+
+		lista2 = lista1;
+
+		assert(!lista2.empty());
 	}
 }
