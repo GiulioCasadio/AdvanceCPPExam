@@ -37,6 +37,19 @@ private:
         Node<T>* operator->() const {
             return ptr;
         }
+
+        Node<T>* operator=(const Node<T>& other)
+        {
+            if (ptr != &other)
+            {
+                ptr->value = other.value;
+                ptr->next = other.next;
+            }
+
+            return *ptr;
+        }
+
+
         /*
         list_iterator& operator++() {
             ptr = ptr->next;
@@ -85,13 +98,13 @@ public:
 
         //Insert elements from the end of the list
         void push_front(const T& value) {
-            if (firstPos == nullptr) {
+            if (empty()) {
                 firstPos = new Node<T>(value);
-                firstPos->next = nullptr;
             }
             else {
+                auto next = firstPos;
                 firstPos = new Node<T>(value);
-                firstPos->next = firstPos;
+                firstPos->next = next;
             }
             dim++;
         }
@@ -99,16 +112,14 @@ public:
         void pop_front() {
             if (!empty()) {
                if (size() > 1) {
-                    auto aux = firstPos->next;
+                    Node<T> aux = *firstPos->next;
                     delete firstPos;
-                    firstPos = aux;
+                    firstPos = &aux;
                }
                else {
                    delete firstPos;
-                   firstPos->value = NULL;
-                   firstPos->next = nullptr;
                }
-                dim--;
+               dim--;
             }
         }
 
@@ -126,9 +137,9 @@ public:
         }
 
         void clear() {
-            auto tempNode = firstPos->next;
-            delete firstPos;
-            //firstPos = tempNode;
+            while (!empty()) {
+                pop_front();
+            }
         }
 
         //How to operate iterators

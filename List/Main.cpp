@@ -21,11 +21,23 @@ int main()
 		assert(!listaprova.empty());
 		// TODO assert(*listaprova.front==5); // front e operator ==
 		listaprova.push_front(*listaprova.front());
-		assert(listaprova.size()==2);
+		assert(listaprova.size() == 2);
+		listaprova.push_front(6);
 		listaprova.pop_front();
-		assert(listaprova.size() == 1);
-		listaprova.clear();
-		assert(listaprova.empty());
+		assert(listaprova.size() == 2);
 	}
 
+	// pop
+	{
+		SList<int> listaprova;
+		listaprova.push_front(5);
+		listaprova.pop_front();
+		assert(listaprova.empty());
+		listaprova.clear();
+		assert(listaprova.empty());
+		listaprova.push_front(5);
+		listaprova.push_front(5);
+		listaprova.pop_front();
+		listaprova.pop_front();
+	}
 }
