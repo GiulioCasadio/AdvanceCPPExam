@@ -50,4 +50,13 @@ int main()
 
 		assert(!lista2.empty());
 	}
+
+	// test operatore == e operatore !=
+	{
+		SList<int> lista1 = SList<int>(2, 3);
+		SList<int> lista2 = SList<int>(2, 6);
+
+		assert(lista1 != lista2);
+		assert(!(lista1 == lista2));
+	}
 }

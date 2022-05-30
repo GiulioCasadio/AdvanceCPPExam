@@ -147,4 +147,26 @@ public:
 
             return this;
         }
+
+        bool operator!=(const SList<T>& other) {
+            if (this->dim != other.dim) {
+                return true;
+            }
+            
+            const Node<T>* nodoa = this->firstPos,* nodob = other.firstPos;
+            for (int i = this->dim; i > 0; i--) {
+                if (nodoa->value == nodob->value){
+                    return false;
+                }
+                nodoa = nodoa->next;
+                nodob = nodob->next;
+            }
+
+            return true;
+        }
+
+        bool operator==(SList<T>& other) { // TODO qua mi serve il const?
+            SList<T>* temp = &other;
+            return !(this != temp);
+        }
 };
