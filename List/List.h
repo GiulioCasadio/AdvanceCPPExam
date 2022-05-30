@@ -48,17 +48,14 @@ private:
 
             return *ptr;
         }
-
-
-        /*
+        
         list_iterator& operator++() {
             ptr = ptr->next;
             return *this;
         }
 
         list_iterator operator++(int) {
-            node<T>* tmp = ptr;
-            // This is a constant pointer to the list iterator, so * this is the list iterator object, and the preceding + + has been overloaded
+            Node<T>* tmp = ptr;
             ++(*this);
             return list_iterator(tmp);
         }
@@ -70,7 +67,6 @@ private:
         bool operator!=(const list_iterator& t) const {
             return t.ptr != this->ptr;
         }
-        */
     };
 public:
         typedef list_iterator iterator; 

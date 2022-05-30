@@ -27,7 +27,7 @@ int main()
 		assert(listaprova.size() == 2);
 	}
 
-	// pop
+	// popfront
 	{
 		SList<int> listaprova;
 		listaprova.push_front(5);
@@ -38,6 +38,6 @@ int main()
 		listaprova.push_front(5);
 		listaprova.push_front(5);
 		listaprova.pop_front();
-		listaprova.pop_front();
+		listaprova.pop_front(); // TODO perdo il riferimento e da errore. indagare
 	}
 }
