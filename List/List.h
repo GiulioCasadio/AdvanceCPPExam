@@ -107,6 +107,12 @@ public:
             return list_iterator(firstPos);
         }
 
+        void clear() {
+            auto tempNode = firstPos->next;
+            delete firstPos;
+            //firstPos = tempNode;
+        }
+
         //How to operate iterators
        //Return to the head pointer of the list
         /*iterator begin() const {
