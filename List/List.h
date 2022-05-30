@@ -64,20 +64,22 @@ public:
 
         SList() {
             firstPos = nullptr;
-            dim = 1;
+            dim = 0;
         }
 
         // crea un lista di n elementi nulli
         SList(int n) {
-            for (int i : n) {
+            while (n) {
                 push_front(nullptr);
+                n--;
             }
         }
 
         // crea un lista di n elementi nulli
         SList(int n, T value) {
-            for (int i : n) {
+            while (n) {
                 push_front(value);
+                n--;
             }
         }
 
@@ -88,10 +90,26 @@ public:
                 firstPos->next = nullptr;
             }
             else {
-                firstPos->next = firstPos;
                 firstPos = new Node<T>(value);
+                firstPos->next = firstPos;
             }
             dim++;
+        }
+
+        void pop_front() {
+            if (!empty()) {
+               if (size() > 1) {
+                    auto aux = firstPos->next;
+                    delete firstPos;
+                    firstPos = aux;
+               }
+               else {
+                   delete firstPos;
+                   firstPos->value = NULL;
+                   firstPos->next = nullptr;
+               }
+                dim--;
+            }
         }
 
         int size() { return dim; }
